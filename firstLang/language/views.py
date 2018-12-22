@@ -27,8 +27,8 @@ def processReuquest(request, x):
     req =requests.get(page)
     soup = BeautifulSoup(req.text, 'html.parser')
     skill = soup.find_all("span",{"class":"skill-name"})
-
-    return HttpResponse(x)
+    s = [x.text.strip() for x in skill]
+    return render(request, 'language/results.html', {'skills' : s, 'zip': x[0]})
 
 
 class SearchView(ListView):

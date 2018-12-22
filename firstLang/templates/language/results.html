@@ -1,0 +1,17 @@
+
+<form method="POST">
+  {% csrf_token %}
+Zip Code<input type="text" name="search" value=""><br>
+<!-- Special Text<input type="text" name="search" value=""> -->
+<button type="submit" name="search" class="btn-primary" value="">Search Job</button>
+
+</form>
+
+<ul>
+{% for skill in skills%}
+
+<li>{{skill}}</li>
+
+
+{% endfor%}
+</ul>
